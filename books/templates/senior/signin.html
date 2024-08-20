@@ -1,0 +1,41 @@
+{% extends 'base.html'%}
+{% load static %}
+
+{% block content %}
+<style>
+    .form-control
+    {
+    margin-bottom:10px;
+    }
+     .a
+    {
+    background:rgba(206,206,206,0.6);
+    }
+    .b
+    {
+    background:#ffab00;
+    }
+</style>
+<div class="row">
+    <div class="h1 text-center">SIGN<span style="color:#ffab00;"> IN<i class="fa fa-key fa-spin"></i></div></span>
+    <div class="col-sm-3"></div>
+    <div class="col-sm-6 a    p-5" >
+        <div class="row">
+            <div class="col-sm-6 a"> <center> <b style="font-size:30px;">Hello!</b> <br><h5>Sign into Your Account</h5></center><br>
+                <form method="post" autocomplete="off" enctype="multipart/form-data">
+            {% csrf_token %}
+            User Name<input type="email" placeholder="Enter your Email" class="form-control" name="email"/>
+            Password<input type="password" placeholder="Enter your password" class="form-control" name="passw"/>
+                    <input type="checkbox"/> Remember me &nbsp &nbsp&nbsp &nbsp&nbsp &nbsp&nbsp &nbsp&nbsp &nbspforgot password<br><br>
+            <center><input type="submit" value="SIGN IN" class="btn btn-warning" style="width:250px;"></center><br>
+                   <center> <b> Don't have an account? &nbsp <a href="http://127.0.0.1:8000/senior/signup/"> Create </a></b> </center>
+        </form></div>
+            <div class="col-sm-6 b "> <center style="padding-top:110px; color:white;"> <h2> Welcome to the </br>World's of Books - <br>Kitab Ghar </h2></center></div>
+        </div>
+
+    </div>
+    <div class="col-sm-3"></div>
+</div>
+
+
+{% endblock%}

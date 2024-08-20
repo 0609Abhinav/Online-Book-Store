@@ -1,0 +1,71 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block content %}
+<style>
+    .form-control
+    {
+    margin-bottom:8px;
+    }
+
+
+
+
+</style>
+<div class="row">
+    <div class="h2 text-center p-3"><span style="color:black;">Contact</span><b style="color:#ffab00; ">Us &nbsp<i
+            class="fa fa-phone"></i></b></div>
+    <div class="col-sm-1"></div>
+    <div class="col-sm-10" style="background:#FFE082">
+        <div class="row">
+            <div class="col-sm-5 m-5 bg-light">
+                <ul class="list-unstyled mt-4">
+                    <li><h6><i class="fa fa-map-marker fa-2x" style="color:orange"> &nbsp Office Addres</i></h6>
+                        <b style="font-size:20px;"><p>PIPRIS ADHARPUR BHADOHI, <br>UTTAR PRADESH INDIA, <br>PIN Code :-221401</p></b></li>
+
+                    <li><i class="fa fa-phone mt-1 fa-2x" style="color:orange"> &nbsp Call Us</i>
+                        <b style="font-size:20px;"> <p> +91 9621854341</p></b>
+                    </li>
+
+                    <li><i class="fa fa-envelope mt-1 fa-2x" style="color:orange"> &nbspMail Us</i>
+                        <b style="font-size:20px;"><p>AbhinavTripathi2016@gmail.com</p></b>
+                    </li>
+                </ul>
+            </div>
+            <div class="col-sm-5 p-5" style="color:red; font-weight:bold;">
+                <form method="post" autocomplete="off">
+                    {% csrf_token %}
+                    {% if S%}
+                    <div class="alert alert-success">
+                        Thanks for Enquiry...
+                    </div>
+                    {% endif %}
+
+                    Name<input type="text" placeholder="Enter your name" class="form-control" name="name"/>
+                    Email<input type="email" placeholder="Enter your Email" class="form-control" name="email"/>
+                    Address<input type="text" placeholder="Enter your Address" class="form-control" name="address"/>
+                    Mobile No<input type="text" placeholder="Enter your Mobile No." class="form-control" name="mobile"/>
+                    Message<textarea class="form-control"  placeholder="Type Your Message here" name="msg" ></textarea>
+                    <center> <input type="submit" value="SAVE" class="btn btn-danger "> </center>
+                </form>
+            </div>
+        </div>
+    </div>
+    <div class="col-sm-1"></div>
+</div>
+
+
+<!-- start map-->
+<div class="row">
+    <h1 style="text-align:center;margin-top:60px;">FIND US ON <span style="color:orange">Google Map</span></h1>
+    <p style="font-size:20px;text-align:center;">view us on google map</p>
+    <div class="col-sm-12 bg-white">
+
+        <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d28839.863638791412!2d82.51398040202982!3d25.371887740543134!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x398fe7319a9636b9%3A0x33a5babe4b68b207!2sPipris%2C%20Uttar%20Pradesh%20221401!5e0!3m2!1sen!2sin!4v1632893051630!5m2!1sen!2sin"
+                width="100%" height="450" style="border:0;" allowfullscreen="" loading="lazy"></iframe>
+    </div>
+</div>
+<!-- end map-->
+
+
+{% endblock %}

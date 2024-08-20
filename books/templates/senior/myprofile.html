@@ -1,0 +1,37 @@
+{% extends 'base.html' %}}
+{% load static %}
+{% block content %}
+<div class="container">
+    <div class="row">
+        <center class="fs-2 my-3">My <span style="color:#ffab00;">Books <i class="fa fa-book"></i></span></center>
+        <div class="col-sm-12">
+            <table class="table">
+  <thead>
+    <tr>
+      <th scope="col">SN</th>
+      <th scope="col">Title</th>
+      <th scope="col">Book Description</th>
+      <th scope="col">Coverpic</th>
+      <th scope="col">category</th>
+    </tr>
+  </thead>
+  <tbody>
+  {% if bookdata %}
+
+  {% for i in bookdata %}
+    <tr>
+      <th scope="row">1</th>
+      <td>{{i.title}}</td>
+      <td>{{i.description}}</td>
+      <td>{{i.coverpic}}</td>
+      <td>{{i.bookcategory}}</td>
+    </tr>
+  {% endfor %}
+  {% endif %}
+  </tbody>
+</table>
+        </div>
+    </div>
+</div>
+
+{% endblock %}

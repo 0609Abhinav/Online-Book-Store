@@ -1,0 +1,44 @@
+{% extends 'base.html'%}
+{% load static %}
+
+{% block content %}
+<style>
+    .form-control
+    {
+    margin-bottom:10px;
+    }
+    .ll
+    {
+    background:rgba(206,206,206,0.6);
+    font-size:18px;
+    }
+</style>
+<div class="row pb-2 pt-3">
+    <div class="h2 text-center ">SIGN <b class="text-warning">UP <i class="fa fa-user-plus"></i></b></div>
+    <div class="col-sm-3" ></div>
+
+    <div class="col-sm-6  p-5 ll">
+         <form method="post" autocomplete="off" enctype="multipart/form-data">
+           {% csrf_token %}
+             Name<input type="text" name="name"  required class="form-control" placeholder="Enter Your Name..."/>
+             Gender <br><input type="radio" name="gender" value="male"> Male <input type="radio" name="gender" value="female"> Female <input type="radio" name="gender" value="other"> Other<br>
+           DOB<input type="date" name="dob"  required class="form-control" placeholder="Enter Your DOB... "/>
+           Mobile<input type="number" name="mobile"  required class="form-control" placeholder="Enter Your Mobile..."/>
+           Email<input type="email" name="email"  required class="form-control" placeholder="Enter Your Email Id..."/>
+           Password<input type="password" name="passwd"  required class="form-control" placeholder="Enter Your Password..."/>
+           Confirm Password<input type="password" name="cpasswd"  required class="form-control" placeholder="Enter Your Confirm Password..."/>
+                       Highest Qualification<input type="text" name="qualification"  required class="form-control" placeholder="Enter Your Highest Qualification..."/>
+           Profession<input type="text" name="profession " required class="form-control" placeholder="Enter Your Profession..."/>
+           Profile Picture<input type="file" name="pp"  required class="form-control"/>
+          City<input type="text" name="city"  required class="form-control" placeholder="Enter Your City Name..."/>
+           Address <textarea class="form-control" name="address" style="min-height:110px;resize:none;" placeholder="Enter Your Address..." required></textarea>
+          Display Publically<br><input type="radio"  name="dp" value="yes"> Yes <input type="radio" name="dp" value="no"> No <br>
+             <center> <input type="submit" value="Submit" class="btn btn-warning  px-5 required form-control" onclick="document.getElementById('contact-form').submit();" style="width:300px; font-size:25px;"/></center>
+               </form>
+        <center><b> Already have an account? &nbsp <a href="http://127.0.0.1:8000/senior/signin/"> LogIn </a> </b></center>
+    </div>
+    <div class="col-sm-3 "></div>
+    <div class="col-sm-2"></div>
+</div>
+
+{% endblock %}

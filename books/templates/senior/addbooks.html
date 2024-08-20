@@ -1,0 +1,52 @@
+
+{% extends 'base.html'%}
+{% load static %}
+
+{% block content %}
+<style>
+    .form-control
+    {
+    margin-bottom:10px;
+    }
+    .ll
+    {
+    background:rgba(206,206,206,0.6);
+    }
+</style>
+<div class="row pb-2 pt-2">
+    <div class="h2 text-center ">Add Your <b class="text-warning">Books Details <i class="fa fa-book"></i></b></div>
+    <div class="col-sm-2" ></div>
+
+    <div class="col-sm-4  p-3 ll">
+         <form method="post" autocomplete="off" enctype="multipart/form-data">
+           {% csrf_token %}
+             Book Title <input type="text" name="name"  required class="form-control" placeholder="Enter Your Book Title..."/>
+             Author Id <input type="text" name="aname"  required class="form-control" placeholder="Enter Author Name..."/>
+             Category <br>
+             <select name="category" class="form-control" >
+                 <option value="category"> Select Your Book Category</option>
+                 {% if category %}
+                 {% for x in category %}
+                 <option>{{ x.cname }}</option>
+                 {% endfor%}
+                 {% endif%}
+
+             </select>
+
+             Useful For <input type="text" name="useful"  required class="form-control" placeholder="Useful For ..."/>
+             Charge <input type="number" name="charge"  required class="form-control" placeholder="Enter Your Book Charge..."/>
+             Cover Picture<input type="file" name="cp"  required class="form-control"/>
+             Short Description of Book<textarea class="form-control" name="short" style="min-height:110px;resize:none;" placeholder="Enter Short Description of Book" required></textarea>
+
+              <center><input type="submit" value="Subbmit" class="btn btn-warning px-5"/></center>
+         </form>
+    </div>
+    <div class="col-sm-4 pt-4 ll">
+      <img src="{% static 'images/books21.jpg' %}" class="img-fluid rounded-start" alt="...">
+           {% csrf_token %}
+
+    </div>
+    <div class="col-sm-2"></div>
+</div>
+
+{% endblock %}
